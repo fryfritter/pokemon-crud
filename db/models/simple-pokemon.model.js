@@ -21,6 +21,7 @@ module.exports = (sequelize, DataTypes) => {
       },
       japaneseName: {
         type: DataTypes.STRING,
+        // unique: true,
       },
       baseHP: {
         type: DataTypes.INTEGER,
@@ -40,7 +41,14 @@ module.exports = (sequelize, DataTypes) => {
     },
     {
       sequelize,
-      modelName: "SimplePokemon",
+      // modelName: "SimplePokemon",
+      tableName: "Simple_Pokemon",
+      indexes: [
+        {
+          // unique: true,
+          fields: ["japaneseName"],
+        },
+      ],
     }
   );
   return SimplePokemon;

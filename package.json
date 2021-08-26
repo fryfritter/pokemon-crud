@@ -5,12 +5,16 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "start:dev": "nodemon index.js"
+    "start:dev": "nodemon index.js",
+    "test": "jest",
+    "test:coverage": "jest --coverage",
+    "test:watch": "jest --watch"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "jest": "^27.0.6",
     "nodemon": "^2.0.12"
   },
   "dependencies": {
