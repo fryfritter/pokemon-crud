@@ -17,5 +17,5 @@ setTimeout(createPikachu, 300);
 
 const Read = require("./crud/read");
 
-setTimeout(() => Read.findPokemonsWithBaseHPGreaterThan(34), 700);
+setTimeout(() => Read.findPokemonsWithBaseHpMoreThan(34), 700);
 // setTimeout(() => Read.findPokemonWithNameOrBaseHP("Pikachu", 59), 500);
