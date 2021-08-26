@@ -28,7 +28,7 @@ describe("create", () => {
 
   /* eslint-disable no-unused-vars, no-unused-expressions, jest/no-disabled-tests */
 
-  it.skip("should create a pokemon", async () => {
+  it.only("should create a pokemon", async () => {
     const created = await createPokemon(pokemon1);
 
     expect(created.id).not.toBeNull();
@@ -37,7 +37,7 @@ describe("create", () => {
     expect(created).toMatchObject(pokemon1);
   });
 
-  it.only("should not create pokemon without name", async () => {
+  it("should not create pokemon without name", async () => {
     // run
     await expect(createPokemon({ ...pokemon1, name: null })).rejects.toThrow();
     // assert
@@ -56,7 +56,6 @@ describe("create", () => {
   it.skip("should not create pokemon with duplicated name", async () => {
     // set up
     await expect(createPokemon({ ...pokemon1, name: null })).toThrow();
-
     // run
 
     // assertion

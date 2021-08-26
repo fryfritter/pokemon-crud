@@ -63,7 +63,7 @@ describe("retrieve/read/find", () => {
     });
   });
 
-  describe.skip("findPokemons", () => {
+  describe("findPokemons", () => {
     describe("findPokemonsByName", () => {
       it("should return a Pokemon", async () => {
         const retrieved = await findPokemonByName("Pikachu");

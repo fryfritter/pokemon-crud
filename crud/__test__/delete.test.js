@@ -1,7 +1,4 @@
-const {
-  updatePokemonsBaseHPByCategory,
-  updatePokemonsBaseHPWithUpdatedRecord,
-} = require("../update.js");
+const { deletePokemon } = require("../delete.js");
 
 const db = require("../../db/models/index.js");
 const PokemonModel = db.SimplePokemon;
@@ -54,20 +51,8 @@ describe("retrieve/read/find", () => {
 
   /* eslint-disable no-unused-vars, no-unused-expressions, jest/no-disabled-tests */
 
-  describe.only("updateAllTurle", () => {
-    it("should return 2 ", async () => {
-      const retrieved = await updatePokemonsBaseHPByCategory(200, "Turtle");
-      expect(retrieved).toEqual([2]);
-    });
-  });
-
-  describe.only("updateAllTurleWithOptions", () => {
-    it("should return 2 ", async () => {
-      const retrieved = await updatePokemonsBaseHPWithUpdatedRecord(
-        200,
-        "Turtle"
-      );
-      expect(retrieved).toEqual(2);
-    });
+  it("should delete 1 ", async () => {
+    const retrieved = await deletePokemon(1);
+    expect(retrieved).toEqual(1);
   });
 });

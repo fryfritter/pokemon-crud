@@ -19,18 +19,21 @@ const updatePokemonsBaseHPByCategory = async (newHp, category) => {
 };
 
 // With updated records
-const updatePokemonsBaseHPWithUpdatedRecord = async () => {
-  const [numberOfAffectedRecords, updatedPokemons] = await SimplePokemon.update(
-    { baseHP: 100 },
-    {
-      where: {
-        category: {
-          [Op.like]: "%Turtle%",
+const updatePokemonsBaseHPWithUpdatedRecord = async (newHp, category) => {
+  const [numberOfAffectedRecords, updatedPokemons] =
+    await db.SimplePokemon.update(
+      { baseHP: newHp },
+      {
+        where: {
+          category: {
+            [Op.like]: `%${category}%`,
+          },
         },
-      },
-      returning: true,
-    }
-  );
+        returning: true,
+      }
+    );
+  console.log(updatedPokemons);
+  return numberOfAffectedRecords;
 };
 
 module.exports = {
