@@ -1,9 +1,7 @@
 const {
-  findAllPokemons,
-  findPokemonByName,
-  findPokemonsWithBaseHpMoreThan,
-  findPokemonWithNameOrBaseHp,
-} = require("../read.js");
+  updatePokemonsBaseHPByCategory,
+  updatePokemonsBaseHPWithUpdatedRecord,
+} = require("../update.js");
 
 const db = require("../../db/models/index.js");
 const PokemonModel = db.SimplePokemon;
@@ -56,14 +54,14 @@ describe("retrieve/read/find", () => {
 
   /* eslint-disable no-unused-vars, no-unused-expressions, jest/no-disabled-tests */
 
-  describe("findAllPokemons", () => {
-    it("should return array with length 4", async () => {
-      const retrieved = await findAllPokemons();
-      expect(retrieved.length).toEqual(4);
+  describe.only("updateAllTurle", () => {
+    it("should return 2 ", async () => {
+      const retrieved = await updatePokemonsBaseHPByCategory(200, "Turtle");
+      expect(retrieved).toEqual([2]);
     });
   });
 
-  describe.skip("findPokemons", () => {
+  describe("findPokemons", () => {
     describe("findPokemonsByName", () => {
       it("should return a Pokemon", async () => {
         const retrieved = await findPokemonByName("Pikachu");
@@ -76,7 +74,7 @@ describe("retrieve/read/find", () => {
       });
     });
 
-    describe.only("findPokemonWithBaseHpMoreThan", () => {
+    describe("findPokemonWithBaseHpMoreThan", () => {
       it("should return array with baseHP more than", async () => {
         const retrieved = await findPokemonsWithBaseHpMoreThan(40);
 
