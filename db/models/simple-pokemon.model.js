@@ -19,10 +19,10 @@ module.exports = (sequelize, DataTypes) => {
       name: {
         type: DataTypes.STRING,
         allowNull: false,
+        unique: true,
       },
       japaneseName: {
         type: DataTypes.STRING,
-        // unique: true,
       },
       baseHP: {
         type: DataTypes.INTEGER,
